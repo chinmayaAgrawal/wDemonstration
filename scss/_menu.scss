@@ -25,7 +25,7 @@
       // Line 1 - Rotate
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
-        background: rgb(58, 8, 8);
+        background: #eece1a;
       }
 
       // Line 2 - Hide
@@ -36,8 +36,108 @@
       // Line 3 - Rotate
       &:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
-        background: rgb(58, 8, 8) ;
+        background: #eece1a ;
       }
     }
   }
 }
+
+// Menu Overlay
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    //hidden so that it does not appear by default
+    visibility: hidden;
+    //when show then it sis visible
+    &.show {
+      visibility: visible;
+    }
+    &-branding,
+    &-nav {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+    }
+  
+    &-nav {
+      margin: 0;
+      padding: 0;
+      background: darken($primary-color, 5);
+      //for bullet removal
+      list-style: none;
+      //for the translate effect otherwise it would have been a stone
+      transform: translate3d(0, -100%, 0);
+      @include easeOut;
+  
+      &.show {
+        // Slide in from top
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    // Branding Side (left side)
+  &-branding {
+    background: $primary-color;
+    transform: translate3d(0, 100%, 0);
+    @include easeOut;
+
+    &.show {
+      // Slide in from bottom
+      transform: translate3d(0, 0, 0);
+    }
+    .portrait {
+        width: 250px;
+        height: 256px;
+        //portrait pic in the left 
+        background: url('../img/portrait-04.jpg');
+        border-radius: 50%;
+        border: solid 3px $secondary-color;
+      }
+
+    }
+    // all nav options in menu scene
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      // Slide in from right menu options but all thogether so delay by 0.1 sec at end
+      transform: translate3d(0, 0, 0);
+    }
+    //for always making the current page menu to be yellow
+    &.current > a {
+        color: $secondary-color;
+      }
+  }
+    // making the nav bar of menu lively
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: set-text-color($primary-color);
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
+      //background-color: black;
+      font-size: 40px;
+    }
+  }
+
+}
+// Delay each nav item slide by 0.1s
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+      transition-delay: $x * 0.1s;
+    }
+  }
