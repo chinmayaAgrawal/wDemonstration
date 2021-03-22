@@ -1,13 +1,15 @@
 // Widescreens
 @include mediaXl {
-    .projects {
+  //for display in the my project page 
+    .project {
       grid-template-columns: repeat(4, 1fr);
     }
   }
   
   // Desktops & Laptops
   @include mediaLg {
-    .projects {
+    //for display in my projects page
+    .project {
       grid-template-columns: repeat(3, 1fr);
     }
   }
@@ -62,8 +64,8 @@
     
         grid-template-columns: 1fr;
       }
-    
-      .projects {
+     // for display in my projects page
+      .project {
         grid-template-columns: repeat(2, 1fr);
       }
       
@@ -83,7 +85,7 @@
       }
     }
   
-    .projects {
+    .project {
       grid-template-columns: 1fr;
     }
   }

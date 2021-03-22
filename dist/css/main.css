@@ -181,6 +181,35 @@ main {
     padding: 0.5rem;
     border-bottom: #eece1a 5px solid; }
 
+.project {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr); }
+  .project img {
+    width: 100%;
+    border: 3px #fff solid; }
+    .project img:hover {
+      opacity: 0.5;
+      border-color: #eece1a;
+      transition: all 0.5s ease-out; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background: #eece1a;
+    color: #000; }
+
+.btn-dark {
+  background: black;
+  color: #fff; }
+
+.btn-light {
+  background: #c4c4c4;
+  color: #333; }
+
 #main-footer {
   text-align: center;
   padding: 1rem;
@@ -189,11 +218,11 @@ main {
   height: 60px; }
 
 @media screen and (min-width: 1171px) {
-  .projects {
+  .project {
     grid-template-columns: repeat(4, 1fr); } }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
-  .projects {
+  .project {
     grid-template-columns: repeat(3, 1fr); } }
 
 @media screen and (max-width: 768px) {
@@ -225,7 +254,7 @@ main {
   .about-info {
     grid-template-areas: 'bioimage' 'bio' 'job1' 'job2' 'job3';
     grid-template-columns: 1fr; }
-  .projects {
+  .project {
     grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 500px) {
@@ -236,5 +265,5 @@ main {
     main .lg-heading {
       margin-top: 1rem;
       font-size: 5rem; }
-  .projects {
+  .project {
     grid-template-columns: 1fr; } }
